@@ -7,11 +7,15 @@ import (
 )
 
 func main() {
+	e := Router()
+
+	e.Logger.Fatal(e.Start(":3030"))
+}
+
+func Router() *echo.Echo {
 	e := echo.New()
-
 	initRouting(e)
-
-	e.Logger.Fatal(e.Start(":1313"))
+	return e
 }
 
 func initRouting(e *echo.Echo) {
